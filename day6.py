@@ -3,16 +3,14 @@ from collections import Counter
 
 
 def update_fish(fish):
-    new_fish = {}
-    for k in range(8, -1, -1):
-        v = fish.get(k, 0)
-        if k == 0:
-            new_fish[8] = v
-            new_fish[6] = v + fish.get(7, 0)
-        else:
-            new_fish[k - 1] = v
+    new_fish = fish.get(0, 0)
+    for k in range(1, 9):
+        fish[k - 1] = fish.get(k, 0)
 
-    return new_fish
+    fish[8] = new_fish
+    fish[6] += new_fish
+
+    return fish
 
 
 def evolve(days):
