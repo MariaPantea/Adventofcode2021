@@ -27,3 +27,7 @@ def read_input_as_matrix(filename):
 
 def flatten(ls):
     return [item for sublist in ls for item in sublist]
+
+
+def take_n(ls, n):
+    return ls[:n], ls[n:]
